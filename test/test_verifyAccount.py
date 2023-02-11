@@ -44,3 +44,18 @@ def test_verify_typing(page: Page):
 
     expect(page.locator("[class='info success']")).to_be_visible()
 
+
+def test_wrong_input(page: Page):
+
+    account_page = verifyAccount(page)
+
+    account_page.navigate()
+
+    numbers_to_type = page.locator("[type='number']")
+
+    for i in range(0, numbers_to_type.count()):
+
+        numbers_to_type.nth(i).type('4')
+
+    expect(page.locator("[class='info success']")).to_be_hidden()
+
