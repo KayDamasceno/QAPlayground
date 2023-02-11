@@ -39,4 +39,8 @@ def test_remove_all(page: Page):
 
     
     page.locator("div button").click()
+
+    text = page.locator("div p").last
+    expect(text).to_contain_text("0 tags are remaining")
+    
         
